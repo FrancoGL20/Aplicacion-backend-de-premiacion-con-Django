@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+# Establece la ruta base del proyecto, en este caso la ruta de la carpeta premiacion que contiene el archivo settings.py
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -31,13 +32,16 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+    "polls.apps.PollsConfig", # Agrega la aplicación polls al proyecto
+
+    'django.contrib.admin', # Administra las aplicaciones instaladas en el proyecto (usuarios, grupos, etc.)
+    'django.contrib.auth', # Administra la autenticación de usuarios (login, logout, etc.)
+    'django.contrib.contenttypes', # Administra los tipos de contenido de las aplicaciones instaladas en el proyecto (usuarios, grupos, etc.)
+    'django.contrib.sessions', # Administra las sesiones de los usuarios
+    'django.contrib.messages', # Administra los mensajes de las aplicaciones (errores, mensajes de éxito, etc.)
+    'django.contrib.staticfiles', # Administra los archivos estáticos de las aplicaciones (CSS, JavaScript, imágenes, etc.)
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -73,10 +77,18 @@ WSGI_APPLICATION = 'premiacion.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# Establece la configuración de la base de datos a utilizar en el proyecto, en este caso SQLite, pero puede ser MySQL, PostgreSQL, Oracle, etc.
 DATABASES = {
     'default': {
+        # Establece el motor de base de datos a utilizar
         'ENGINE': 'django.db.backends.sqlite3',
+        # Establece el nombre de la base de datos, en este caso db.sqlite3
         'NAME': BASE_DIR / 'db.sqlite3',
+        # Posteriormente se pueden definir los parámetros de conexión a la base de datos, como el usuario, contraseña, host, puerto, etc. con:
+        # 'USER': 'user',
+        # 'PASSWORD': 'password',
+        # 'HOST': 'localhost',
+        # 'PORT': '5432',
     }
 }
 
@@ -105,6 +117,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
+# Lista de zonas horarias soportadas por Django, para más información consultar:
+# https://en.wikipedia.org/wiki/List_of_tz_database_time_zones (ver la segunda columna)
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
@@ -112,7 +126,7 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
+# URL de los archivos estáticos (CSS, JavaScript, imágenes, etc.)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'

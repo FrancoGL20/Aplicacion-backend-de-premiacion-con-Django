@@ -5,7 +5,7 @@ from django.urls import path
 from . import views
 
 # Lista de rutas de la aplicación polls
-urlspatterns = [
+urlpatterns = [
     # Ruta que llama a la función index del módulo views.py
-    path("", view.index, name="index")
+    path("", views.index, name="index")
 ]
