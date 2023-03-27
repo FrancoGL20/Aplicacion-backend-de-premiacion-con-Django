@@ -43,7 +43,16 @@ Este es un proyecto centrado en crear una aplicación Back-End usando el Framewo
 
 6. Crear la base de datos
 
+    Para windows
+
     ```bash
     python manage.py migrate
     ```
+    Para linux
+
+    ```bash
+    python3 manage.py migrate
+    ```
+
+
 
