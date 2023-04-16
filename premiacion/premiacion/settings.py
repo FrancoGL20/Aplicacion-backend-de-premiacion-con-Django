@@ -119,7 +119,7 @@ LANGUAGE_CODE = 'en-us'
 
 # Lista de zonas horarias soportadas por Django, para más información consultar:
 # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones (ver la segunda columna)
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Mexico_City'
 
 USE_I18N = True
 
