@@ -2,6 +2,7 @@
     "recommendations": [
         "batisteo.vscode-django",
         "donjayamanne.python-extension-pack",
-        "qwtel.sqlite-viewer"
+        "qwtel.sqlite-viewer",
+        "pkief.material-icon-theme"
     ]
 }
