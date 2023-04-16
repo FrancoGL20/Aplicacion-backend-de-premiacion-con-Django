@@ -1,5 +1,5 @@
-# Módulo que contiene las vistas de la aplicación polls
-from django.shortcuts import render
+# Importa la función render para poder renderizar un template y la función get_object_or_404 para obtener un objeto de la base de datos o devolver un error 404 si no existe
+from django.shortcuts import render, get_object_or_404
 # Importa la función HttpResponse para poder devolver una respuesta HTTP
 from django.http import HttpResponse
 # Importa el modelo Question para poder usar sus atributos y métodos
@@ -17,6 +17,7 @@ def index(request):
     """
     # Obtiene todas las preguntas de la base de datos
     latest_question_list = Question.objects.all() 
+    
     return render(request, "polls/index.html", {"latest_question_list": latest_question_list})
 
 
@@ -28,9 +29,12 @@ def detail(request, question_id):
         question_id (int): Identificador de la pregunta
 
     Returns:
-        HttpResponse: Objeto que contiene la respuesta HTTP
+        render: Objeto que contiene la respuesta HTTP y el template a renderizar o un error 404 si no existe
     """
-    return HttpResponse(f"Estás viendo la pregunta número {question_id}.")
+    # Obtiene la pregunta de la base de datos o devuelve un error 404 si no existe
+    question=get_object_or_404(Question, pk=question_id)
+    
+    return render(request, "polls/detail.html", {"question": question})
 
 
 def results(request, question_id):
