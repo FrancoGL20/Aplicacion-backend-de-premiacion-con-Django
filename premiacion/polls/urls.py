@@ -5,9 +5,7 @@ from django.urls import path
 from . import views
 
 # Lista de rutas de la aplicación polls
-urlpatterns = [
-    # Ruta que llama a la función index del módulo views.py
-    
+urlpatterns = [    
     # ex: /polls/ (donde polls es el nombre de la aplicación)
     path("", views.index, name="index"), # La ruta "" es la ruta raíz de la aplicación
     
